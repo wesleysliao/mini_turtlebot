@@ -1,3 +1,6 @@
 [submodule "libraries/ESP32Servo"]
 	path = libraries/ESP32Servo
 	url = https://github.com/jkb-git/ESP32Servo.git
+[submodule "hardware/electrical/parts/fritzing-parts"]
+	path = hardware/electrical/parts/fritzing-parts
+	url = https://github.com/Atsumitsu/fritzing-parts
