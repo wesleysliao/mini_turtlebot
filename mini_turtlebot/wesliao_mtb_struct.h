@@ -26,9 +26,12 @@ struct MiniTurtleBotConfig {
   } servo;
 
   const struct {
-    const SonarConfig forward = {.pin = {.trigger = 12,
-                                         .echo = 13},
-                                 .max_range_cm = 200};
+    const SonarConfig forward_left = {.pin = {.trigger = 18,
+                                              .echo = 19},
+                                      .max_range_cm = 200};
+    const SonarConfig forward_right = {.pin = {.trigger = 15,
+                                               .echo = 4},
+                                       .max_range_cm = 200};
   } sonar;
 };
 
@@ -39,11 +42,12 @@ struct MiniTurtleBotState {
   } servo;
 
   struct {
-    Sonar forward;
+    Sonar forward_left;
+    Sonar forward_right;
   } sonar;
 };
 
 struct MiniTurtleBot {
-  MiniTurtleBotConfig cfg;
+  const MiniTurtleBotConfig cfg;
   MiniTurtleBotState st;
 } mtb;

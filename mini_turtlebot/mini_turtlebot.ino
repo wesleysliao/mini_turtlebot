@@ -21,14 +21,8 @@ void setup() {
 
 void loop() {
 
-  switch(mtb.st.sonar.forward.update()) {
-    case Sonar::IDLE:
-      mtb.st.sonar.forward.trigger();
-      break;
-    
-    case Sonar::READY:
-      Serial.println(mtb.st.sonar.forward.read_cm());
-      break;
-  }
-  delay(10);
+  mtb_sonar_loop();
+
+
+  delay(50);
 }
