@@ -4,3 +4,6 @@
 [submodule "hardware/electrical/parts/fritzing-parts"]
 	path = hardware/electrical/parts/fritzing-parts
 	url = https://github.com/Atsumitsu/fritzing-parts
+[submodule "libraries/FastIMU"]
+	path = libraries/FastIMU
+	url = https://github.com/LiquidCGS/FastIMU.git

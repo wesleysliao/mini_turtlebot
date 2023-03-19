@@ -33,7 +33,7 @@ void mtb_sonar_setup() {
 
 void mtb_sonar_loop() {
 
-  int left = 0, right = 0;
+  static int left = 0, right = 0;
 
   switch(mtb.st.sonar.forward_left.update()) {
     case Sonar::IDLE:
@@ -55,11 +55,9 @@ void mtb_sonar_loop() {
       break;
   }
 
-  if(left || right) {
-    Serial.print("l ");
-    Serial.print(left);
-    Serial.print(" - r ");
-    Serial.print(right);
-    Serial.print("\n");
-  }
+  Serial.print("\t");
+  Serial.print(left);
+  Serial.print("\t");
+  Serial.print(right);
+
 }

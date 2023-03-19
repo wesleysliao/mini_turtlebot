@@ -1,5 +1,6 @@
 #include <ESP32Servo.h>
 #include "Sonar.h"
+#include "FastIMU.h"
 
 struct ServoConfig {
   uint8_t pin;
@@ -17,22 +18,26 @@ struct SonarConfig {
 
 struct MiniTurtleBotConfig {
   const struct {
-    const ServoConfig left_wheel = {.pin = 32, 
+    const ServoConfig left_wheel = {.pin = 23, 
                                     .pulse_min_us=500, 
                                     .pulse_max_us=2400};
-    const ServoConfig right_wheel = {.pin = 33, 
+    const ServoConfig right_wheel = {.pin = 19, 
                                      .pulse_min_us=500, 
                                      .pulse_max_us=2400};
   } servo;
 
   const struct {
-    const SonarConfig forward_left = {.pin = {.trigger = 18,
-                                              .echo = 19},
+    const SonarConfig forward_left = {.pin = {.trigger = 5,
+                                              .echo = 18},
                                       .max_range_cm = 200};
     const SonarConfig forward_right = {.pin = {.trigger = 15,
                                                .echo = 4},
                                        .max_range_cm = 200};
   } sonar;
+
+  const struct {
+    const int16_t address = 0x68;
+  } imu;
 };
 
 struct MiniTurtleBotState {
@@ -45,6 +50,14 @@ struct MiniTurtleBotState {
     Sonar forward_left;
     Sonar forward_right;
   } sonar;
+
+  struct {
+    MPU9250 imu;
+    calData calibration;
+    AccelData accel;
+    GyroData gyro;
+    MagData mag;
+  } imu;
 };
 
 struct MiniTurtleBot {

@@ -2,6 +2,7 @@
 #include "wesliao_mtb_struct.h"
 #include "wesliao_mtb_servo.h"
 #include "wesliao_mtb_sonar.h"
+#include "wesliao_mtb_imu.h"
 #include "Sonar.h"
 
 void setup() {
@@ -10,6 +11,7 @@ void setup() {
 
   mtb_servo_setup();
   mtb_sonar_setup();
+  mtb_imu_setup();
 
   mtb.st.servo.left_wheel.write(15);
   mtb.st.servo.right_wheel.write(165);
@@ -22,7 +24,9 @@ void setup() {
 void loop() {
 
   mtb_sonar_loop();
+  mtb_imu_loop();
 
+  Serial.print("\n");
 
   delay(50);
 }

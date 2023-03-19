@@ -1,0 +1,2 @@
+ 
+Fritzing part for MPU 9250 downloaded from https://forum.fritzing.org/t/new-part-for-mpu-9250/6624/5
